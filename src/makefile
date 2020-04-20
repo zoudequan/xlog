@@ -15,7 +15,7 @@ DIRS = ./
 vpath %.c   $(DIRS)
 vpath %.cpp $(DIRS)
 
-SRCS = main.c xbuffer.c
+SRCS = main.c xbuffer.c xlog.c
 LIBS = -lrt -lpthread
 
 define match_rule
@@ -26,7 +26,7 @@ OBJS = $(call match_rule, %.o)
 DEPS = $(call match_rule, %.d)
 PRES = $(call match_rule, %.i)
 
-INCDIR = $(addprefix -I, $(DIRS))
+INCDIR = $(addprefix -I, $(DIRS)) -I../inc
 CFLAGS = -Wall -c -gdwarf-2 -fpic
 XFLAGS = -std=gnu++11
 LFLAGS = -L./lib -Wl,-rpath=${shell pwd}/lib -Wl,--as-needed
