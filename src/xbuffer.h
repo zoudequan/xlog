@@ -3,9 +3,13 @@
 #define __XLOG_BUFFER__
 
 #include <stdint.h>
+#include "xdef.h"
+
+#ifdef  __cplusplus
+extern "C" {
+#endif
 
 typedef struct xbuffer_* xbuffer_p;
-typedef        uint8_t * uint8_p;
 
 typedef struct xbfer_msg_ {
     int16_t _size;
@@ -22,5 +26,8 @@ int32_t xbuffer_give (xbuffer_p hbuffer);
 
 int32_t xbuffer_dump(xbuffer_p hbuffer);
 
+#ifdef  __cplusplus
+}
+#endif
 
 #endif
